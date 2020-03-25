@@ -1,0 +1,44 @@
+{
+  "name": "Bitbucket Extender",
+  "version": "1.0",
+  "description": "Adds functionality to your bitbucket PRs!",
+  "permissions": [
+    "activeTab",
+    "declarativeContent",
+    "storage"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": [
+        "https://HOST_HERE/*",
+        "http://HOST_HERE/*"
+      ],
+      "js": [
+        "bitbucket.js"
+      ]
+    }
+  ],
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/bitbucket16.png",
+      "32": "images/bitbucket32.png",
+      "48": "images/bitbucket48.png",
+      "128": "images/bitbucket128.png"
+    }
+  },
+  "icons": {
+    "16": "images/bitbucket16.png",
+    "32": "images/bitbucket32.png",
+    "48": "images/bitbucket48.png",
+    "128": "images/bitbucket128.png"
+  },
+  "manifest_version": 2
+}
