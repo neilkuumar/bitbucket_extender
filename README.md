@@ -5,4 +5,4 @@ Something I really quickly hacked together to add a nice Copy Branch Name button
 
 There's quite a few places you need to replace "HOST_NAME" with your actual host.
 
-For now just find and replace, I will create an environment variable at some point!
+For now just find and replace on the entire repo, I will create an environment variable at some point!
