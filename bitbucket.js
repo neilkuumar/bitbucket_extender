@@ -16,10 +16,9 @@ function copyBranchName(){
 }
 
 function isValidPage(){
-  const isBitbucket = window.location.hostname === "HOST_HERE";
   const isAPr = window.location.href.match(/\/pull-requests\/(\d+)/);
 
-  return isBitbucket && isAPr;
+  return isAPr;
 }
 
 function addCopyButton(){
