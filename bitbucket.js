@@ -21,15 +21,35 @@ function isValidPage(){
   return isAPr;
 }
 
-function addCopyButton(){
+function addCopyButtons(){
+  const container = document.createElement('div');
+
   const header = document.querySelector('#pull-request-header');
   const button = document.createElement('button');
   button.textContent = "Copy Branch Name";
+  button.style = "margin-right: 20px;cursor:pointer;"
   button.onclick = copyBranchName;
 
-  header.prepend(button);
+  // add button
+  container.appendChild(button);
+
+  const jiraTicketNum = document.querySelector('.branch-name')
+    .textContent
+    .split("/")
+    .find(text => ["ENG", "BUG", "PUG", "PROD", "FE"].includes(text.split("-")[0]));
+
+  if(jiraTicketNum){
+    const jiraLink = document.createElement('a');
+    jiraLink.target= '_blank';
+    jiraLink.setAttribute('href',`https://eigentech.atlassian.net/browse/${jiraTicketNum}`);
+    jiraLink.innerText = `View ${jiraTicketNum} in JIRA`;
+
+    container.appendChild(jiraLink);
+  }
+
+  header.prepend(container);
 }
 
 if(isValidPage()){
-  addCopyButton()
+  addCopyButtons()
 }
